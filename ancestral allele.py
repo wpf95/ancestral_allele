@@ -11,7 +11,7 @@ for line in fo:
     line1 = line.strip().split()
     for i in line1[9:]:
         num=len([x.strip() for x in line1[9:]])
-###找纯合基因型
+###find homozygous genotype
         if i[0:3:1] ==  '1/1' :
             m = m+1
         elif i[0:3:1] == "0/0":
@@ -23,7 +23,7 @@ for line in fo:
         freq1 =float (s / num)
         z = l2[-1] - l2[-2]
         freq2 = float(z / num)
-###寻找纯合等位基因型几率大于50%的点
+###Find points where the chance of homozygous allele is greater than 50%
         if freq1 > 0.5:
             fo2.write(line1[0]+"\t"+line1[1]+"\t"+'1/1'+"\n")
         elif freq2 > 0.5:
